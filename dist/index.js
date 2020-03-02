@@ -7706,6 +7706,7 @@ async function run() {
         })
 
     } catch (ex) {
+        console.error(ex);
         core.error(ex);
         core.setFailed(ex);
     }
