@@ -7695,7 +7695,7 @@ async function run() {
         const token = core.getInput('token', { required: true });
         const label = core.getInput('label', { required: true });
 
-        const client = new github(token);
+        const client = new github.GitHub(token);
         const prNumber = getPrNumber();
 
         client.issues.addLabels({
@@ -7707,8 +7707,8 @@ async function run() {
 
     } catch (ex) {
         console.error(ex);
-        core.error(ex);
         core.setFailed(ex);
+        core.error(ex);
     }
 }
 
