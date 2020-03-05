@@ -1,23 +1,11 @@
 import { Toolkit } from 'actions-toolkit';
 
-
-interface LabelDefinition {
-    id: number,
-    name: string
-}
-
-interface RepoContext {
-    repo: string,
-    owner: string
-}
-
 const tools = new Toolkit({
     event: 'issue_comment',
     secrets: ['GITHUB_TOKEN']
 });
 
 const label = tools.inputs.label || 'Port Request';
-
 
 async function run() {
     try {
@@ -39,3 +27,5 @@ async function run() {
         tools.log.error(ex);
     }
 }
+
+run();
